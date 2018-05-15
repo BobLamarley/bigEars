@@ -8,6 +8,7 @@
       <v-flex xs2>
         <sideNavMenu></sideNavMenu>
       </v-flex>
+      <slot />
     </v-layout>
   </v-app>
 </template>
