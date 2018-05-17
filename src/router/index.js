@@ -5,6 +5,7 @@ import settings from '@/components/settings'
 import home from '@/components/home'
 import corePage from '@/components/corePage'
 import pageNotFound from '@/components/pageNotFound'
+import dictionnary from '@/components/dictionnary'
 
 Vue.use(Router)
 Vue.use(Vuetify)
@@ -20,6 +21,11 @@ export default new Router({
       path: '/settings',
       name: 'settings',
       component: settings
+    },
+    {
+      path: '/dictionnary',
+      name: 'dictionnary',
+      component: dictionnary
     },
     {
       path: '/home',

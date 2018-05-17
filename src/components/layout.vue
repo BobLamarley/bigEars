@@ -5,10 +5,10 @@
       <v-flex xs12>
         <stickyHeader></stickyHeader>
       </v-flex>
-      <v-flex xs2>
+      <v-flex xs12>
         <sideNavMenu></sideNavMenu>
+        <slot/>
       </v-flex>
-      <slot />
     </v-layout>
   </v-app>
 </template>

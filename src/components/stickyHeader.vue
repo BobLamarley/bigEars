@@ -1,7 +1,18 @@
 <template>
   <div class="header">
-      <materialBurger></materialBurger>
-      <img src='../assets/images/bigears.svg' height="60">
+    <v-container grid-list-xs text-xs-center>
+      <v-layout row wrap>
+        <v-flex xs1>
+          <materialBurger></materialBurger>
+        </v-flex>
+        <v-flex xs10>
+          <img src='../assets/images/bigears.svg' height="60">
+        </v-flex>
+        <v-flex xs1 id="settings">
+          <router-link to="/settings" tag="button"><i class="fas fa-cog fa-3x"></i></router-link>
+        </v-flex>
+      </v-layout>
+    </v-container>
   </div>
 </template>
 
@@ -44,6 +55,11 @@ body{
 .material-burger span:after,
 .material-burger span:before{
     background: #FFF;
+}
+
+#settings
+{
+  margin: auto;
 }
 
 </style>

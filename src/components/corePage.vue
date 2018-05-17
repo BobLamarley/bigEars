@@ -1,22 +1,19 @@
 <template>
-  <div>
-    <td v-for="crypto in overviewCrypto" v-bind:key="crypto.price">
-        <li>{{ crypto.symbol }}</li>
-        <li>{{ crypto.price }}</li>
-    </td>
-  </div>
+<div>
+  lamaaaa
+</div>
 </template>
 
 <script>
 export default {
   name: 'corePage',
   created () {
-    this.$store.dispatch('crypto/loadOverviewCrypto')
+    this.$store.dispatch('pingBicApi/pingBicApi')
   },
   // be able to get the data
   computed: {
-    overviewCrypto () {
-      return this.$store.getters['crypto/overviewCrypto']
+    ping () {
+      return this.$store.getters['pingBicApi/getPing']
     }
   }
 }
@@ -24,4 +21,16 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+#blue
+{
+  background-color: blue;
+}
+#red
+{
+  background-color: red;
+}
+#green
+{
+  background-color: green;
+}
 </style>
