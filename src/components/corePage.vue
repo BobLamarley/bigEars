@@ -1,7 +1,8 @@
 <template>
-<div>
-  lamaaaa
-</div>
+  <div>
+    lamaaaa
+    {{ ping.msg }}
+  </div>
 </template>
 
 <script>
@@ -21,16 +22,4 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-#blue
-{
-  background-color: blue;
-}
-#red
-{
-  background-color: red;
-}
-#green
-{
-  background-color: green;
-}
 </style>

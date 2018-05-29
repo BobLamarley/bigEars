@@ -4,6 +4,7 @@
       <router-link to="/home">Accueil</router-link>
       <router-link to="/dictionnary">Dictionnaire</router-link>
       <router-link to="/dashboard">Dashboard</router-link>
+      <router-link to="/notifications">Notifications</router-link>
       <router-link to="/settings">Paramètres</router-link>
     </div>
   </div>

@@ -10,6 +10,7 @@
         <slot/>
       </v-flex>
     </v-layout>
+    <footerPage></footerPage>
   </v-app>
 </template>
 
@@ -17,12 +18,14 @@
 import stickyHeader from './stickyHeader.vue'
 import sideNavMenu from './sideNavMenu.vue'
 import loader from './loader.vue'
+import footerPage from './footerPage.vue'
 
 export default {
   components: {
     stickyHeader,
     sideNavMenu,
-    loader
+    loader,
+    footerPage
   }
 }
 </script>

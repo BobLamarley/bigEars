@@ -20,7 +20,7 @@ const pingBicApi = {
   actions: {
     pingBicApi ({ commit }) {
       axios
-        .post('http://bic-backend.rec.s.arkea.com:8080/bic-backend/rested/InteractionsService/ping')
+        .post('http://api-sandbox.rec.s.arkea.com:8080/bicapi/InteractionsService/ping')
         .then(r => r.data)
         .then(msg => {
           commit('SET_BIC', msg)

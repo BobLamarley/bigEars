@@ -1,6 +1,6 @@
 <template>
   <div>
-   <p>Test</p>
+   <p>Ceci est la page de présentation de bigEars</p>
   </div>
 </template>
 
