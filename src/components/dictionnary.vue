@@ -28,23 +28,7 @@
         </v-flex>
       </v-layout>
     </v-container>
-    <v-dialog v-model="dialog" persistent max-width="500px">
-      <v-btn slot="activator" color="primary" dark>Open Dialog</v-btn>
-            <v-card>
-              <v-card-title>
-                <span class="headline">Topic edit</span>
-              </v-card-title>
-              <v-card-text>
-              </v-card-text>
-              <v-card-actions>
-                <v-spacer></v-spacer>
-                <v-btn color="blue darken-1" flat @click.native="dialog = false">Close</v-btn>
-                <v-btn color="blue darken-1" flat @click.native="dialog = false">Save</v-btn>
-              </v-card-actions>
-            </v-card>
-          </v-dialog>
   </div>
-
 </template>
 <script>
 export default
@@ -79,7 +63,6 @@ export default
   }
 }
 </script>
-
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 </style>

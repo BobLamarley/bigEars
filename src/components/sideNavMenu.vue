@@ -36,7 +36,7 @@ export default {
 .sidenav {
     height: 100%; /* 100% Full-height */
     position: fixed; /* Stay in place */
-    z-index: 0; /* Stay on top */
+    z-index: 1; /* Stay on top */
     top: 0; /* Stay at the top */
     left: 0;
     background-color: #111; /* Black*/

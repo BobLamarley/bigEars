@@ -9,7 +9,7 @@
           <img src='../assets/images/bigears.svg' height="60">
         </v-flex>
         <v-flex xs1 id="settings">
-          <router-link to="/settings" tag="button"><i class="fas fa-cog fa-3x"></i></router-link>
+          <router-link to="/notifications" tag="button"><i class="far fa-bell"></i></router-link>
         </v-flex>
       </v-layout>
     </v-container>
@@ -39,7 +39,7 @@ body{
 }
 
 .header{
-    z-index: 1;
+    z-index: 2;
     background: #5677fc;
     position: fixed;
     width: 100%;

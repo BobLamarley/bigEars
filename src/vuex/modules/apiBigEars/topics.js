@@ -21,6 +21,20 @@ const topics = {
         .then(topics => {
           commit('SET_TOPICS', topics)
         })
+    },
+    setDescriptionFromTopicId ({ commit }, { id, description }) {
+      axios
+        .put('http://localhost:8080/bigearsapi/api/topics/' + id + '/description',
+          {
+            description: description
+          },
+          {
+            headers: {
+              'content-type': 'application/json',
+              'cache-control': 'no-cache'
+            }
+          }
+        )
     }
   }
 }
