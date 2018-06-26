@@ -22,7 +22,7 @@
             <template slot="items" slot-scope="props">
               <td>{{ props.item.topic }}</td>
               <td class="text-xs-right">{{ props.item.description }}</td>
-              <td><router-link :to="{ name: 'editTopic', params: { id: props.item.id, topicName: props.item.topic, description: props.item.description } }" ><i class="fas fa-edit"></i></router-link></td>
+              <td><router-link :to="{ name: 'editTopic', params: { id: props.item.id, topicName: props.item.topic, description: props.item.description, addedDate: props.item.addedDate } }" ><i class="fas fa-edit"></i></router-link></td>
             </template>
           </v-data-table>
         </v-flex>
