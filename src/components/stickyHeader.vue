@@ -6,7 +6,7 @@
           <materialBurger></materialBurger>
         </v-flex>
         <v-flex xs10>
-          <img src='../assets/images/bigears.svg' height="60">
+            <router-link to="/home"><img src='../assets/images/bigears.svg' height="60"></router-link>
         </v-flex>
         <v-flex xs1 id="settings">
           <router-link to="/notifications" tag="button"><i class="far fa-bell"></i></router-link>
