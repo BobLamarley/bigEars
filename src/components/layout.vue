@@ -7,7 +7,7 @@
       </v-flex>
       <v-flex xs12>
         <sideNavMenu></sideNavMenu>
-        <slot/>
+        <slot class="scrlbr"/>
       </v-flex>
     </v-layout>
     <footerPage></footerPage>
@@ -31,4 +31,7 @@ export default {
 </script>
 
 <style>
+slot.scrlbr{
+  overflow: auto;
+}
 </style>

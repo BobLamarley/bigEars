@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="app" Vuebar>
     <layout>
       <router-view></router-view>
     </layout>
@@ -8,6 +8,7 @@
 
 <script>
 import layout from '@/components/layout'
+
 export default {
   name: 'App',
   components: {
@@ -35,9 +36,26 @@ export default {
   margin-top: 60px; */
 }
 
-html
-{
-  overflow: hidden;
+/* width */
+::-webkit-scrollbar {
+    width: 8px;
 }
 
+/* Track */
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #5677fc;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #5677fc;
+}
+html{
+  overflow: hidden;
+}
 </style>
