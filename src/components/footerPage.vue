@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="footer">
     <v-footer height="auto" class="color white--text">
           <v-layout row wrap>
             <v-flex xs12>
@@ -21,5 +21,10 @@ export default {
 .color
 {
   background: #5677fc;
+}
+
+#footer
+{
+  z-index: 1;
 }
 </style>
