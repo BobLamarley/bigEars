@@ -1,6 +1,7 @@
 <template>
-  <div id="app" Vuebar>
+  <div id="app">
     <layout>
+      <notifications group="newTopic" position="bottom right" duration="500" />
       <router-view></router-view>
     </layout>
   </div>
@@ -36,25 +37,6 @@ export default {
   margin-top: 60px; */
 }
 
-/* width */
-::-webkit-scrollbar {
-    width: 8px;
-}
-
-/* Track */
-::-webkit-scrollbar-track {
-    box-shadow: inset 0 0 5px grey;
-}
-
-/* Handle */
-::-webkit-scrollbar-thumb {
-    background: #5677fc;
-}
-
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-    background: #5677fc;
-}
 html{
   overflow: hidden;
 }

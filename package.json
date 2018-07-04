@@ -14,11 +14,13 @@
   },
   "dependencies": {
     "axios": "^0.18.0",
+    "moment": "^2.22.2",
     "style-loader": "^0.20.3",
     "vue": "^2.5.2",
     "vue-fixed-header": "^1.0.1",
+    "vue-notification": "^1.3.10",
     "vue-router": "^3.0.1",
-    "vuetify": "^1.0.15",
+    "vuetify": "^1.1.1",
     "vuex": "^3.0.1"
   },
   "devDependencies": {
