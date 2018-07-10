@@ -6,7 +6,17 @@
           <materialBurger></materialBurger>
         </v-flex>
         <v-flex xs10>
-            <router-link to="/home"><img src='../assets/images/bigears.svg' height="60"></router-link>
+          <v-layout row wrap>
+            <v-flex xs4>
+            </v-flex>
+            <v-flex xs4>
+              <router-link to="/home"><img src='../assets/images/bigears.svg' height="60"></router-link>
+            </v-flex>
+            <v-flex xs4>
+              <v-autocomplete :items="items" v-model="item" :get-label="getLabel" :component-item='template' @update-items="updateItems">
+              </v-autocomplete>
+            </v-flex>
+          </v-layout>
         </v-flex>
         <v-flex xs1 id="settings">
           <router-link to="/notifications" tag="button"><i class="far fa-bell"></i></router-link>
@@ -18,11 +28,29 @@
 
 <script>
 import materialBurger from './materialBurger.vue'
+import itemTemplate from './itemTemplate.vue'
 
 export default {
   name: 'stickyHeader',
   components: {
     materialBurger
+  },
+  data () {
+    return {
+      item: {},
+      items: [],
+      template: itemTemplate
+    }
+  },
+  methods: {
+    getLabel (item) {
+      return item.topic
+    },
+    updateItems (text) {
+      this.items = this.$store.getters['topics/getTopics'].filter((item) => {
+        return (new RegExp(text.toLowerCase())).test(item.topic.toLowerCase())
+      })
+    }
   }
 }
 </script>

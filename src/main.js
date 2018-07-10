@@ -7,10 +7,15 @@ import store from './vuex/store'
 import notifications from 'vue-notification'
 import vuetify from 'vuetify'
 import vuetifycss from 'vuetify/dist/vuetify.min.css'
+import globalFilters from './services/filters'
+import autocomplete from 'v-autocomplete'
+import 'v-autocomplete/dist/v-autocomplete.css'
 
 Vue.config.productionTip = false
 
+Vue.use(globalFilters, store)
 Vue.use(notifications)
+Vue.use(autocomplete)
 
 /* eslint-disable no-new */
 new Vue({
@@ -20,12 +25,5 @@ new Vue({
   vuetify,
   vuetifycss,
   components: { App },
-  template: '<App/>',
-  mounted: function () {
-    this.$notify({
-      group: 'newTopic',
-      title: 'Nouveau stopic à décrire',
-      text: 'Veuillez vous rendre dans la section dictionnaire'
-    })
-  }
+  template: '<App/>'
 })

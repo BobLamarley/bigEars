@@ -17,7 +17,6 @@
 </template>
 
 <script>
-import moment from 'moment'
 
 export default {
   name: 'editTopic',
@@ -29,17 +28,9 @@ export default {
   methods: {
     save: function (event) {
       this.$store.dispatch('topics/setDescriptionFromTopicId', { id: this.$refs.id.value, description: this.desc })
-
       return new Promise((resolve, reject) => {
         setTimeout(() => this.$router.push('/dictionnary'), 1000)
       })
-    }
-  },
-  filters: {
-    formatDate: function (value) {
-      if (value) {
-        return moment(value, 'x').format('MM/DD/YYYY hh:mm')
-      }
     }
   }
 }

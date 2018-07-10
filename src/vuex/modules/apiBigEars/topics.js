@@ -3,14 +3,19 @@ import axios from 'axios'
 const topics = {
   namespaced: true,
   state: {
-    topics: []
+    topics: [],
+    newTopics: []
   },
   getters: {
-    getTopics: state => state.topics
+    getTopics: state => state.topics,
+    getNewTopics: state => state.newTopics
   },
   mutations: {
     SET_TOPICS (state, topics) {
       state.topics = topics
+    },
+    SET_NEWTOPICS (state, newTopics) {
+      state.newTopics = newTopics
     }
   },
   actions: {
@@ -20,6 +25,14 @@ const topics = {
         .then(r => r.data)
         .then(topics => {
           commit('SET_TOPICS', topics)
+        })
+    },
+    getNewTopicsSinceTimestampFromApi ({ commit }) {
+      axios
+        .get('http://localhost:8080/bigearsapi/api/topics/new/1530031778316')
+        .then(r => r.data)
+        .then(newTopics => {
+          commit('SET_NEWTOPICS', newTopics)
         })
     },
     setDescriptionFromTopicId ({ commit }, { id, description }) {

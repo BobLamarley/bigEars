@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <layout>
-      <notifications group="newTopic" position="bottom right" duration="500" />
+      <notifications group="newTopic" position="bottom right" :duration="5000" />
       <router-view></router-view>
     </layout>
   </div>
@@ -22,6 +22,16 @@ export default {
   },
   mounted () {
     this.loading = false
+    for (var i = 0; i < this.$store.getters['topics/getNewTopics'].length; i++) {
+      this.$notify({
+        group: 'newTopic',
+        title: this.$store.getters['topics/getNewTopics'][i].topic,
+        text: 'Veuillez vous rendre dans la section dictionnaire'
+      })
+    }
+  },
+  created () {
+    this.$store.dispatch('topics/getNewTopicsSinceTimestampFromApi')
   }
 }
 </script>
