@@ -13,7 +13,6 @@
                  <v-list-tile-content>
                    <v-list-tile-title v-html="item.topic"></v-list-tile-title>
                    <router-link :to="{ name: 'editTopic', params: { id: item.id, topicName: item.topic, description: item.description, uptime: item.uptime } }" ><i class="fas fa-edit"></i></router-link>
-
                    <v-list-tile-sub-title v-if="item.uptime" v-html="$options.filters.formatDate(item.uptime)"></v-list-tile-sub-title>
                  </v-list-tile-content>
                </v-list-tile>

@@ -43,8 +43,29 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-/*  color: #2c3e50;
-  margin-top: 60px; */
 }
 
+::-webkit-scrollbar
+{
+      width: 8px;
+      height: 8px;
+      background: transparent;
+}
+  /* Track */
+::-webkit-scrollbar-track
+{
+      background: transparent;
+}
+
+  /* Handle */
+::-webkit-scrollbar-thumb
+{
+      background: #5677fc;
+}
+
+  /* Handle on hover */
+::-webkit-scrollbar-thumb:hover
+{
+      background: #5677fc;
+}
 </style>

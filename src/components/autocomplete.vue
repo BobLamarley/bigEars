@@ -100,10 +100,17 @@ export default {
 .autocomplete
 {
   padding-bottom: 250px;
+  padding-top: 150px;
 }
 
 .dropdown-menu>.active>a, .dropdown-menu>.active>a:focus, .dropdown-menu>.active>a:hover
 {
   background-color: #ecf0f1;
+}
+
+/* bootstrap fix */
+.row
+{
+  margin-left: 0px;
 }
 </style>
