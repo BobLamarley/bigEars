@@ -47,7 +47,4 @@ export default {
   margin-top: 60px; */
 }
 
-html{
-  overflow: hidden;
-}
 </style>

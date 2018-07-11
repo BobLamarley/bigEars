@@ -14,6 +14,7 @@
   },
   "dependencies": {
     "axios": "^0.18.0",
+    "bootstrap-vue": "^2.0.0-rc.11",
     "moment": "^2.22.2",
     "style-loader": "^0.20.3",
     "v-autocomplete": "^1.8.2",

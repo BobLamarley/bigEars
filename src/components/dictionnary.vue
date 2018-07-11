@@ -5,6 +5,10 @@
           <v-flex xs3>
           </v-flex>
           <v-flex xs6>
+            <div class="autocomplete">
+              <autocomplete :suggestions="topics" v-model="selection">
+              </autocomplete>
+            </div>
            <v-data-table :headers="headers" :items="topics" class="elevation-1">
              <template slot="headerCell" slot-scope="props">
               <v-tooltip bottom>
@@ -31,11 +35,18 @@
   </div>
 </template>
 <script>
+
+import autocomplete from './autocomplete.vue'
+
 export default
 {
   name: 'dictionnary',
+  components: {
+    autocomplete
+  },
   data () {
     return {
+      selection: '',
       headers: [
         {
           text: 'Nom du topic Kafka',
@@ -65,4 +76,8 @@ export default
 </script>
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.autocomplete
+{
+  padding-bottom: 250px;
+}
 </style>

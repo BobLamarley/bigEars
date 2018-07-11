@@ -9,7 +9,6 @@ import vuetify from 'vuetify'
 import vuetifycss from 'vuetify/dist/vuetify.min.css'
 import globalFilters from './services/filters'
 import autocomplete from 'v-autocomplete'
-import 'v-autocomplete/dist/v-autocomplete.css'
 
 Vue.config.productionTip = false
 

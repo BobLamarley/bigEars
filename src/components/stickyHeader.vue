@@ -13,8 +13,6 @@
               <router-link to="/home"><img src='../assets/images/bigears.svg' height="60"></router-link>
             </v-flex>
             <v-flex xs4>
-              <v-autocomplete :items="items" v-model="item" :get-label="getLabel" :component-item='template' @update-items="updateItems">
-              </v-autocomplete>
             </v-flex>
           </v-layout>
         </v-flex>
@@ -28,29 +26,11 @@
 
 <script>
 import materialBurger from './materialBurger.vue'
-import itemTemplate from './itemTemplate.vue'
 
 export default {
   name: 'stickyHeader',
   components: {
     materialBurger
-  },
-  data () {
-    return {
-      item: {},
-      items: [],
-      template: itemTemplate
-    }
-  },
-  methods: {
-    getLabel (item) {
-      return item.topic
-    },
-    updateItems (text) {
-      this.items = this.$store.getters['topics/getTopics'].filter((item) => {
-        return (new RegExp(text.toLowerCase())).test(item.topic.toLowerCase())
-      })
-    }
   }
 }
 </script>

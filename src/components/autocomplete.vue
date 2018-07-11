@@ -1,57 +1,109 @@
 <template>
-  <div class="auto-complete">
-    <input :class="{ 'has-error': hasError}" type="text" v-model="input" @keydown.tab.prevent="complete()" @focus="focus(true)" @blur="focus(false)">
-    <table v-if="focused">
-      <tbody>
-        <tr v-for="(person, i) in data" :key="person.id" v-if="filter(person)" @mousedown="complete(i)">
-            <td>{{ person[field] }}</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+  <div style="position:relative" v-bind:class="{'open':openSuggestion}">
+     <input class="form-control" type="text" :value="value" @input="updateValue($event.target.value)" @keydown.enter = 'enter' @keydown.down = 'down' @keydown.up = 'up' @focus = "show" @keydown.esc = 'close' @blur = 'close'>
+     <ul class="dropdown-menu" style="width:100%">
+         <li v-for="(suggestion, index) in matches" :key="(suggestion, index).id" v-bind:class="{'active': isActive(index)}" @click="suggestionClick(index)">
+           <router-link :to="{ name: 'editTopic', params: { id: suggestion.id, topicName: suggestion.topic, description: suggestion.description, uptime: suggestion.uptime } }" ><a href="#">{{ suggestion.id }} <small>{{ suggestion.topic }}</small>
+           </a></router-link>
+         </li>
+     </ul>
+ </div>
 </template>
-
 <script>
 export default {
   props: {
-    value: {type: String, required: false},
-    data: {type: Array, required: true},
-    field: {type: String, required: true}
-  },
-  methods: {
-    complete (i) {
-      if (i === undefined) {
-        for (let row of this.data) {
-          if (this.filter(row)) {
-            this.select(row)
-            return
-          }
-        }
-      }
-      this.select(this.data[i])
+    value: {
+      type: String,
+      required: true
     },
-    select (row) {
-      this.input = row[this.field]
-      this.selected = true
+    suggestions: {
+      type: Array,
+      required: true
     },
-    filter (row) {
-      return row[this.field].toLowerCase().indexOf(this.input.toLowerCase()) !== -1
-    },
-    focus (f) {
-      this.focused = f
-    }
+    limit: Number,
+    caseSensitive: Boolean
   },
   data () {
     return {
-      input: '',
-      focused: false
+      open: true,
+      current: 0
     }
   },
-  created () {
-    this.input = this.value || ''
+  computed: {
+    // Filtering the suggestion based on the input
+    matches () {
+      return this.suggestions.filter((obj) => {
+        return obj.topic.indexOf(this.resolveCase(this.value)) >= 0
+      }).slice(0, this.limit || 5)
+    },
+    openSuggestion () {
+      return this.selection !== '' &&
+             this.matches.length !== 0 &&
+             this.open === true
+    }
+  },
+  methods: {
+    // Triggered the input event to cascade the updates to
+    // parent component
+    updateValue (value) {
+      if (this.open === false) {
+        this.open = true
+        this.current = 0
+      }
+      this.$emit('input', value)
+    },
+    // When enter key pressed on the input
+    enter () {
+      this.$emit('input', this.matches[this.current].topic)
+      this.open = false
+    },
+    // When up arrow pressed while suggestions are open
+    up () {
+      if (this.current > 0) {
+        this.current--
+      }
+    },
+    // When down arrow pressed while suggestions are open
+    down () {
+      if (this.current < this.matches.length - 1) {
+        this.current++
+      }
+    },
+    // For highlighting element
+    isActive (index) {
+      return index === this.current
+    },
+    // When one of the suggestion is clicked
+    suggestionClick (index) {
+      this.$emit('input', this.matches[index].topic)
+      this.open = false
+    },
+    resolveCase (text) {
+      if (!this.caseSensitive) {
+        return (text || '').toLowerCase()
+      }
+      return text
+    },
+    close () {
+      setTimeout(() => {
+        this.open = false
+      }, 200)
+    },
+    show () {
+      this.open = true
+    }
   }
 }
 </script>
 
 <style>
+.autocomplete
+{
+  padding-bottom: 250px;
+}
+
+.dropdown-menu>.active>a, .dropdown-menu>.active>a:focus, .dropdown-menu>.active>a:hover
+{
+  background-color: #ecf0f1;
+}
 </style>
