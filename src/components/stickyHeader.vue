@@ -18,6 +18,9 @@
         </v-flex>
         <v-flex xs1 id="settings">
           <router-link to="/notifications" tag="button"><i class="far fa-bell"></i></router-link>
+          <form class="logout" @submit.prevent="logout">
+            <v-btn type="submit"><i class="fas fa-sign-out-alt"></i></v-btn>
+          </form>
         </v-flex>
       </v-layout>
     </v-container>
@@ -31,6 +34,14 @@ export default {
   name: 'stickyHeader',
   components: {
     materialBurger
+  },
+  methods: {
+    logout: function () {
+      this.$store.dispatch('auth/authLogout')
+        .then(() => {
+          this.$router.push('/login')
+        })
+    }
   }
 }
 </script>

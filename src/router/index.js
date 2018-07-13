@@ -9,9 +9,26 @@ import dictionnary from '@/components/dictionnary'
 import notifications from '@/components/notifications'
 import login from '@/components/login'
 import editTopic from '@/components/editTopic'
+import store from '../vuex/store'
 
 Vue.use(Router)
 Vue.use(Vuetify)
+
+const ifNotAuthenticated = (to, from, next) => {
+  if (!store.getters.isAuthenticated) {
+    next()
+    return
+  }
+  next('/')
+}
+
+const ifAuthenticated = (to, from, next) => {
+  if (store.getters.isAuthenticated) {
+    next()
+    return
+  }
+  next('/')
+}
 
 export default new Router({
   routes: [
@@ -33,12 +50,14 @@ export default new Router({
     {
       path: '/login',
       name: 'login',
-      component: login
+      component: login,
+      beforeEnter: ifNotAuthenticated
     },
     {
       path: '/home',
       name: 'home',
-      component: home
+      component: home,
+      beforeEnter: ifAuthenticated
     },
     {
       path: '/dashboard',

@@ -3,8 +3,10 @@ import Vue from 'vue'
 
 import menu from './modules/menu'
 import loader from './modules/loader'
-import pingBicApi from './modules/apiBic/pingBicApi'
-import topics from './modules/apiBigEars/topics'
+import pingBicApi from './modules/pingBicApi'
+import topics from './modules/topics'
+import auth from './modules/auth'
+import user from './modules/user'
 
 Vue.use(Vuex)
 
@@ -15,7 +17,9 @@ const store = new Vuex.Store({
     menu: menu,
     loader: loader,
     pingBicApi: pingBicApi,
-    topics: topics
+    topics: topics,
+    auth: auth,
+    user: user
   },
   strict: debug
 })

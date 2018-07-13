@@ -4,13 +4,13 @@
      <v-flex xs4>
      </v-flex>
      <v-flex xs4>
-        <div class="login">
-        <h1>Login</h1>
-        <form method="post">
-          <v-text-field id="username" name="input-1" label="Identifiant"></v-text-field>
-          <v-text-field id="password" name="input-1" label="Mot de passe"></v-text-field>
-          <v-btn outline color="indigo">Se connecter</v-btn>
-        </form>
+        <div>
+          <h1>Login</h1>
+          <form class="login" @submit.prevent="login">
+            <v-text-field required v-model="username" type="text" label="Login"></v-text-field>
+            <v-text-field required v-model="password" type="text" label="Mot de passe"></v-text-field>
+            <v-btn outline color="indigo" type="submit">Se connecter</v-btn>
+          </form>
         </div>
       </v-flex>
     </v-layout>
@@ -19,7 +19,22 @@
 
 <script>
 export default {
-  name: 'login'
+  name: 'login',
+  data () {
+    return {
+      username: '',
+      password: ''
+    }
+  },
+  methods: {
+    login: function () {
+      const { username, password } = this
+      console.log({ username, password })
+      this.$store.dispatch('auth/authRequest', { username, password }).then(() => {
+        this.$router.push('/')
+      })
+    }
+  }
 }
 </script>
 

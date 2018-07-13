@@ -9,6 +9,7 @@ import vuetify from 'vuetify'
 import vuetifycss from 'vuetify/dist/vuetify.min.css'
 import globalFilters from './services/filters'
 import autocomplete from 'v-autocomplete'
+import axios from 'axios'
 
 Vue.config.productionTip = false
 
@@ -26,3 +27,8 @@ new Vue({
   components: { App },
   template: '<App/>'
 })
+
+const token = localStorage.getItem('user-token')
+if (token) {
+  axios.defaults.headers.common['Authorization'] = token
+}

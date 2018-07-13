@@ -27,9 +27,9 @@ const topics = {
           commit('SET_TOPICS', topics)
         })
     },
-    getNewTopicsSinceTimestampFromApi ({ commit }) {
+    getNewTopicsSinceTimestampFromApi ({ commit }, { timestampOfLastConnection }) {
       axios
-        .get('http://localhost:8080/bigearsapi/api/topics/new/1530031778316')
+        .get('http://localhost:8080/bigearsapi/api/topics/new/' + timestampOfLastConnection)
         .then(r => r.data)
         .then(newTopics => {
           commit('SET_NEWTOPICS', newTopics)

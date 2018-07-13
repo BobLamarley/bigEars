@@ -1,5 +1,5 @@
 import moment from 'moment'
-
+// Service who import filter globally in the App
 class FilterService {
   constructor (Vue, store) {
     this.Vue = Vue
@@ -26,6 +26,7 @@ class FilterService {
 }
 
 const filters = {
+  // formatDate is a filter who transform a timestamp into a readable date
   formatDate (timestamp) {
     return moment(timestamp, 'x').format('DD/MM/YYYY hh:mm')
   }
