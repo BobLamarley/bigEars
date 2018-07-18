@@ -7,6 +7,8 @@ import pingBicApi from './modules/pingBicApi'
 import topics from './modules/topics'
 import auth from './modules/auth'
 import user from './modules/user'
+import events from './modules/events'
+import createPersistedState from 'vuex-persistedstate'
 
 Vue.use(Vuex)
 
@@ -19,8 +21,10 @@ const store = new Vuex.Store({
     pingBicApi: pingBicApi,
     topics: topics,
     auth: auth,
-    user: user
+    user: user,
+    events: events
   },
+  plugins: [createPersistedState()],
   strict: debug
 })
 

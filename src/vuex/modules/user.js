@@ -2,6 +2,7 @@ import apiCall from '../../utils/api'
 import Vue from 'vue'
 
 const user = {
+  namespaced: true,
   state: {
     status: '',
     profile: {}

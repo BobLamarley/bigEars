@@ -9,8 +9,9 @@
          <v-text-field ref="description" label="description du topic" @change="(e) => desc = e" :value="this.$route.params.description" hint="Quels sont les informations stockées dans ce topic ?"></v-text-field>
          <v-text-field ref="uptime" label="Date d'ajout du topic" :value="this.$route.params.uptime | formatDate"></v-text-field>
          <v-text-field ref="responsableTopic" label="Responsable du topic" hint="Qui est le RA de ce topic"></v-text-field>
-         <v-btn to="/dictionnary" color="blue" flat @click.native="dialog = false">Retour</v-btn>
+         <v-btn :to="{ name: 'dictionnary' }" color="blue" flat @click.native="dialog = false">Retour</v-btn>
          <v-btn v-on:click="save" color="blue" flat @click.native="dialog = false">Sauvegarder</v-btn>
+         <router-link :to="{ name: 'events', params: { topicName: this.$route.params.topicName } }" ><i class="fas fa-edit"></i></router-link>
        </v-flex>
      </v-layout>
    </v-container>

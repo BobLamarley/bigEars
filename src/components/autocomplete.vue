@@ -2,10 +2,10 @@
   <div style="position:relative" v-bind:class="{'open':openSuggestion}">
      <input class="form-control" type="text" :value="value" @input="updateValue($event.target.value)" @keydown.enter = 'enter' @keydown.down = 'down' @keydown.up = 'up' @focus = "show" @keydown.esc = 'close' @blur = 'close'>
      <ul class="dropdown-menu" style="width:100%">
-         <li v-for="(suggestion, index) in matches" :key="(suggestion, index).id" v-bind:class="{'active': isActive(index)}" @click="suggestionClick(index)">
-           <router-link :to="{ name: 'editTopic', params: { id: suggestion.id, topicName: suggestion.topic, description: suggestion.description, uptime: suggestion.uptime } }" ><a href="#">{{ suggestion.id }} <small>{{ suggestion.topic }}</small>
-           </a></router-link>
-         </li>
+        <li v-for="(suggestion, index) in matches" :key="(suggestion, index).id" v-bind:class="{'active': isActive(index)}" @click="suggestionClick(index)">
+          <router-link :to="{ name: 'editTopic', params: { id: suggestion.id, topicName: suggestion.topic, description: suggestion.description, uptime: suggestion.uptime } }" ><p><small>{{ suggestion.topic }}</small>
+          </p></router-link>
+        </li>
      </ul>
  </div>
 </template>
@@ -54,7 +54,7 @@ export default {
     },
     // When enter key pressed on the input
     enter () {
-      this.$emit('input', this.matches[this.current].topic)
+      this.$router.push({name: 'editTopic', params: { id: this.matches[this.current].id, topicName: this.matches[this.current].topic, description: this.matches[this.current].description, uptime: this.matches[this.current].uptime }})
       this.open = false
     },
     // When up arrow pressed while suggestions are open

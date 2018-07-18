@@ -7,7 +7,8 @@
       </v-flex>
       <v-flex xs12>
         <sideNavMenu></sideNavMenu>
-        <slot/>
+        <!-- no slot needed, we just render all children here (with this layout) -->
+        <router-view />
       </v-flex>
     </v-layout>
     <footerPage></footerPage>
@@ -21,6 +22,7 @@ import loader from './loader.vue'
 import footerPage from './footerPage.vue'
 
 export default {
+  name: 'layout',
   components: {
     stickyHeader,
     sideNavMenu,
@@ -31,5 +33,4 @@ export default {
 </script>
 
 <style>
-
 </style>

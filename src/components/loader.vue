@@ -19,7 +19,7 @@ export default {
   },
   mounted: function () {
     setTimeout(() => {
-      this.$store.commit('notLoading')
+      this.$store.commit('loader/notLoading')
     }, 1000)
   }
 }

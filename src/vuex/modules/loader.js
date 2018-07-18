@@ -1,4 +1,5 @@
 const loader = {
+  namespaced: true,
   state: {
     isLoading: true
   },

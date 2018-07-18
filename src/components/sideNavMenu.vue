@@ -1,11 +1,11 @@
 <template>
   <div>
     <div id="mySidenav" class="sidenav" v-bind:class="[ isMenuOpen ? 'open-menu' : 'close-menu' ]">
-      <router-link to="/home">Accueil</router-link>
-      <router-link to="/dictionnary">Dictionnaire</router-link>
-      <router-link to="/dashboard">Dashboard</router-link>
-      <router-link to="/notifications">Notifications</router-link>
-      <router-link to="/settings">Paramètres</router-link>
+      <router-link :to="{ name: 'home' }">Accueil</router-link>
+      <router-link :to="{ name: 'dictionnary' }">Dictionnaire</router-link>
+      <router-link :to="{ name: 'dashboard' }">Dashboard</router-link>
+      <router-link :to="{ name: 'notifications' }">Notifications</router-link>
+      <router-link :to="{ name: 'settings' }">Paramètres</router-link>
     </div>
   </div>
 </template>

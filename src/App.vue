@@ -1,37 +1,21 @@
 <template>
   <div id="app">
-    <layout v-if="isAuthenticated">
-      <notifications group="newTopic" position="bottom right" :duration="5000" />
-      <router-view></router-view>
-    </layout>
-    <login v-else></login>
+    <notifications group="newTopic" position="bottom right" :duration="5000" />
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-import layout from '@/components/layout'
-import login from '@/components/login'
 import axios from 'axios'
-import { mapGetters } from 'vuex'
 
 export default {
   name: 'App',
-  components: {
-    layout,
-    login
-  },
   data () {
     return {
       loading: true
     }
   },
-  computed: {
-    ...mapGetters('auth', [
-      'isAuthenticated'
-    ])
-  },
   mounted () {
-    console.log(this.$store.getters['auth/isAuthenticated'])
     // When mounted, we stop the loader
     this.loading = false
     // Then we show new topics by notifications
@@ -53,7 +37,7 @@ export default {
         if (err.status === 401 && err.config && !err.config.__isRetryRequest) {
         // if you ever get an unauthorized, logout the user
           this.$store.dispatch('auth/authLogout')
-        // you can also redirect to /login if needed !
+          this.$router.push('login')
         }
         throw err
       })

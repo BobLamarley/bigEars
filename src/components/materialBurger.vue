@@ -16,10 +16,10 @@ export default {
     menuAction: function () {
       if (this.isMenuOpen === false) {
         this.isMenuOpen = true
-        this.$store.commit('openMenu')
+        this.$store.commit('menu/openMenu')
       } else if (this.isMenuOpen === true) {
         this.isMenuOpen = false
-        this.$store.commit('closeMenu')
+        this.$store.commit('menu/closeMenu')
       }
     }
   }

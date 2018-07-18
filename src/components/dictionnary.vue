@@ -27,6 +27,7 @@
               <td>{{ props.item.topic }}</td>
               <td class="text-xs-right">{{ props.item.description }}</td>
               <td><router-link :to="{ name: 'editTopic', params: { id: props.item.id, topicName: props.item.topic, description: props.item.description, uptime: props.item.uptime } }" ><i class="fas fa-edit"></i></router-link></td>
+              <td><router-link :to="{ name: 'events', params: { topicName: props.item.topic } }" ><i class="fas fa-edit"></i></router-link></td>
             </template>
           </v-data-table>
         </v-flex>
@@ -57,8 +58,12 @@ export default
           value: 'topicDescription'
         },
         {
-          text: 'Action',
-          value: 'action'
+          text: 'Editer le topic',
+          value: 'edit'
+        },
+        {
+          text: 'Afficher les evenements',
+          value: 'showEvents'
         }
       ]
     }
