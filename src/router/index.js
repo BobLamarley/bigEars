@@ -93,8 +93,8 @@ router.beforeEach((to, from, next) => {
   // tweak this to allow 'home' page to be viewed regardless of login state
   if (!store.getters['auth/isAuthenticated'] && !['login'].includes(to.name)) {
     next({ name: 'login' })
-  } else if (store.getters['auth/isAuthenticated'] && to.name === 'login') {
-    next({ name: 'dictionnary' })
+  } else if (store.getters['auth/isAuthenticated'] && (to.name === 'login' || to.path === '/')) {
+    next({ name: 'dashboard' })
   } else {
     next()
   }
