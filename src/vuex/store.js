@@ -8,6 +8,7 @@ import topics from './modules/topics'
 import auth from './modules/auth'
 import user from './modules/user'
 import events from './modules/events'
+import color from './modules/color'
 import createPersistedState from 'vuex-persistedstate'
 
 Vue.use(Vuex)
@@ -22,7 +23,8 @@ const store = new Vuex.Store({
     topics: topics,
     auth: auth,
     user: user,
-    events: events
+    events: events,
+    color: color
   },
   plugins: [createPersistedState()],
   strict: debug

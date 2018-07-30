@@ -3,6 +3,7 @@
     <div id="mySidenav" class="sidenav" v-bind:class="[ isMenuOpen ? 'open-menu' : 'close-menu' ]">
       <router-link :to="{ name: 'home' }">Accueil</router-link>
       <router-link :to="{ name: 'dictionnary' }">Dictionnaire</router-link>
+      <router-link :to="{ name: 'customers' }">Clients</router-link>
       <router-link :to="{ name: 'dashboard' }">Dashboard</router-link>
       <router-link :to="{ name: 'notifications' }">Notifications</router-link>
       <router-link :to="{ name: 'settings' }">Paramètres</router-link>

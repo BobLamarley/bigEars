@@ -13,9 +13,13 @@
     "build": "node build/build.js"
   },
   "dependencies": {
+    "@radial-color-picker/vue-color-picker": "^1.0.0",
     "axios": "^0.18.0",
     "bootstrap-vue": "^2.0.0-rc.11",
+    "chart.js": "^2.7.2",
     "moment": "^2.22.2",
+    "node-sass": "^4.9.2",
+    "sass-loader": "^7.0.3",
     "style-loader": "^0.20.3",
     "v-autocomplete": "^1.8.2",
     "vue": "^2.5.2",
@@ -84,7 +88,7 @@
     "uglifyjs-webpack-plugin": "^1.1.1",
     "url-loader": "^0.5.8",
     "vue-loader": "^13.3.0",
-    "vue-style-loader": "^3.0.1",
+    "vue-style-loader": "^3.1.2",
     "vue-template-compiler": "^2.5.2",
     "webpack": "^3.6.0",
     "webpack-bundle-analyzer": "^2.9.0",

@@ -16,12 +16,14 @@ export default {
     isLoading: function () {
       return this.$store.state.loader.isLoading
     }
-  },
+  }
+  /*,
   mounted: function () {
     setTimeout(() => {
       this.$store.commit('loader/notLoading')
     }, 1000)
   }
+  */
 }
 </script>
 

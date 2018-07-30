@@ -1,6 +1,6 @@
 <template>
   <div id="footer">
-    <v-footer height="auto" class="color white--text">
+    <v-footer height="auto" class="white--text" v-bind:style="{ background: color }">
           <v-layout row wrap>
             <v-flex xs12>
               &copy;2018 — <strong>Alpha</strong>
@@ -12,7 +12,12 @@
 
 <script>
 export default {
-  name: 'footerPage'
+  name: 'footerPage',
+  computed: {
+    color () {
+      return this.$store.getters['color/getColor']
+    }
+  }
 }
 </script>
 
@@ -26,5 +31,7 @@ export default {
 #footer
 {
   z-index: 1;
+  position: relative;
+  width: 101%;
 }
 </style>

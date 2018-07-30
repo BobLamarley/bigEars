@@ -8,14 +8,12 @@ import notifications from 'vue-notification'
 import vuetify from 'vuetify'
 import vuetifycss from 'vuetify/dist/vuetify.min.css'
 import globalFilters from './services/filters'
-import autocomplete from 'v-autocomplete'
 import axios from 'axios'
 
 Vue.config.productionTip = false
 
 Vue.use(globalFilters, store)
 Vue.use(notifications)
-Vue.use(autocomplete)
 
 /* eslint-disable no-new */
 new Vue({

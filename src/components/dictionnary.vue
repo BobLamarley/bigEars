@@ -2,9 +2,9 @@
   <div>
     <v-container fluid>
        <v-layout row>
-          <v-flex xs3>
+          <v-flex xs2>
           </v-flex>
-          <v-flex xs6>
+          <v-flex xs8 id="dictionnary">
             <div class="autocomplete">
               <autocomplete :suggestions="topics" v-model="selection">
               </autocomplete>
@@ -84,5 +84,10 @@ export default
 .autocomplete
 {
   padding-bottom: 250px;
+}
+
+#dictionnary
+{
+  margin-bottom: 10%;
 }
 </style>

@@ -13,6 +13,7 @@ import events from '@/components/events'
 import plainLayout from '@/components/plainLayout'
 import layout from '@/components/layout'
 import dashboard from '@/components/dashboard'
+import customers from '@/components/customers'
 import store from '../vuex/store'
 
 Vue.use(Router)
@@ -78,6 +79,11 @@ const router = new Router({
           path: 'editTopic',
           name: 'editTopic',
           component: editTopic
+        },
+        {
+          path: 'customers',
+          name: 'customers',
+          component: customers
         }
       ]
     },
@@ -93,8 +99,8 @@ router.beforeEach((to, from, next) => {
   // tweak this to allow 'home' page to be viewed regardless of login state
   if (!store.getters['auth/isAuthenticated'] && !['login'].includes(to.name)) {
     next({ name: 'login' })
-  } else if (store.getters['auth/isAuthenticated'] && to.name === 'login') {
-    next({ name: 'dictionnary' })
+  } else if (store.getters['auth/isAuthenticated'] && (to.name === 'login' || to.path === '/')) {
+    next({ name: 'dashboard' })
   } else {
     next()
   }
