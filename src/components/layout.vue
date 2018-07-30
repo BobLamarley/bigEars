@@ -22,7 +22,6 @@ import stickyHeader from './stickyHeader.vue'
 import sideNavMenu from './sideNavMenu.vue'
 import footerPage from './footerPage.vue'
 import loader from './loader.vue'
-import axios from 'axios'
 
 export default {
   name: 'layout',
